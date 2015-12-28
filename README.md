@@ -11,3 +11,5 @@ After running
 npm install --save-dev babelify@^6.2.0
 ```
 I was able to successfully run gulp 
+
+This page utilizes [facebook-node-sdk] (https://github.com/node-facebook/facebook-node-sdk)
