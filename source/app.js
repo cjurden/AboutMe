@@ -1,5 +1,6 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
+var FB = require('fb');
 var Application = require('./components/Application.react');
 
-ReactDOM.render(<h1>Hello World!</h1>, document.getElementById('react-app'));
+ReactDOM.render(<Application />, document.getElementById('react-app'));
