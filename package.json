@@ -1,0 +1,14 @@
+{
+  "name": "step4",
+  "version": "1.0.0",
+  "description": "About me page using twitter and facebook API with reactJS",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "browserify": "^12.0.1"
+  }
+}
