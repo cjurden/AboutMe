@@ -9,7 +9,7 @@ var Social = React.createClass({
     return (
       <div className="container fluid">
         <div className="row">
-          <div className="col-md-offset-4 col-md-2">
+          <div>
             <Facebook />
           </div>
         </div>

@@ -32,8 +32,6 @@ var Facebook = React.createClass({
   },
 
   render: function () {
-    console.log("rendering facebook component");
-    console.log(this.state.facebookPictureUrl);
     return (
         <FacebookPicture facebookPictureUrl={this.state.facebookPictureUrl} facebookPictureStatus={this.state.facebookPictureStatus} />
     );

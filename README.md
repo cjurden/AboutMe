@@ -1,15 +1,18 @@
 # AboutMe
 Simple about me page using ReactJS and Facebook/Twitter API
 
+###To Run
+Navigate to project directory in terminal and run
+```
+gulp
+```
 #Notes
 Installed react as specified by Facebook:
 ```
 npm install --save react react-dom babelify babel-preset-react
 ```
-After running 
+After running
 ```
 npm install --save-dev babelify@^6.2.0
 ```
-I was able to successfully run gulp 
-
-This page utilizes [facebook-node-sdk] (https://github.com/node-facebook/facebook-node-sdk)
+I was able to successfully run gulp

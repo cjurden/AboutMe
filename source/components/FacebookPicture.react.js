@@ -4,7 +4,8 @@ var FacebookActionCreators = require('../actions/FacebookActionCreators');
 var imgStyle = {
   display: 'block',
   marginLeft: 'auto',
-  marginRight: 'auto'
+  marginRight: 'auto',
+  marginBottom: '3%'
 };
 
 var FacebookPicture = React.createClass({

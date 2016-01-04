@@ -19702,12 +19702,11 @@ var FacebookActionCreators = {
 
 module.exports = FacebookActionCreators;
 
-},{"../dispatcher/AppDispatcher":173}],165:[function(require,module,exports){
+},{"../dispatcher/AppDispatcher":174}],165:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
 var ReactDOM = require('react-dom');
-//var FB = require('fb');
 var Application = require('./components/Application.react');
 
 //with flux
@@ -19716,13 +19715,58 @@ ReactDOM.render(React.createElement(Application, null), document.getElementById(
 //without flux
 //ReactDOM.render(<Application fb={FB}/>, document.getElementById('react-app'));
 
-},{"./components/Application.react":166,"react":163,"react-dom":34}],166:[function(require,module,exports){
+},{"./components/Application.react":167,"react":163,"react-dom":34}],166:[function(require,module,exports){
+'use strict';
+
+var React = require('react');
+
+var aboutStyle = {
+  paddingTop: '10px',
+  verticalAlign: 'middle',
+  position: 'relative'
+
+};
+
+var About = React.createClass({
+  displayName: 'About',
+
+  render: function render() {
+    return React.createElement(
+      'div',
+      { style: aboutStyle, className: 'col-md-offset-2 col-md-8 col-sm-offset-2 col-sm-8' },
+      React.createElement(
+        'p',
+        null,
+        ' ',
+        React.createElement('i', { className: 'fa fa-quote-left fa-2x fa-pull-left fa-border' }),
+        'I am a senior computer science student with a background in dynamic webpage design, specifically using cutting edge frameworks like ',
+        React.createElement(
+          'strong',
+          null,
+          'Angular'
+        ),
+        ' and ',
+        React.createElement(
+          'strong',
+          null,
+          'React'
+        ),
+        '. My greatest strength is adaptability, I learn quickly and enjoy challenging myself. I caught the startup bug at TuneIn, where I witnessed agile development at work and learned how large-scale tech companies operate. I am excited to take the skills I learned there to Cerner, where I am interning in Summer 2016.'
+      )
+    );
+  }
+});
+
+module.exports = About;
+
+},{"react":163}],167:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
 var Footer = require('./Footer.react');
 var Header = require('./Header.react');
 var Social = require('./Social.react');
+var About = require('./About.react');
 //var FB = require('fb');
 //var Social = require('./Social.react');
 
@@ -19750,7 +19794,9 @@ var Application = React.createClass({
       'div',
       { className: 'app' },
       React.createElement(Header, null),
+      React.createElement('hr', null),
       React.createElement(Social, null),
+      React.createElement(About, null),
       React.createElement(Footer, null)
     );
   }
@@ -19760,12 +19806,11 @@ module.exports = Application;
 //
 //style={{textAlign: center}}
 
-},{"./Footer.react":169,"./Header.react":170,"./Social.react":171,"react":163}],167:[function(require,module,exports){
+},{"./About.react":166,"./Footer.react":170,"./Header.react":171,"./Social.react":172,"react":163}],168:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
 var FacebookStore = require('../stores/FacebookStore');
-//var FB = require('fb');
 var FacebookPicture = require('./FacebookPicture.react');
 var FacebookActionCreators = require('../actions/FacebookActionCreators');
 
@@ -19786,8 +19831,6 @@ var Facebook = React.createClass({
   componentDidMount: function componentDidMount() {
     FacebookActionCreators.initFacebook();
     FacebookStore.addChangeListener(this.onFacebookChange);
-    //console.log("facebook initialized");
-    //FacebookActionCreators.getFacebookProfilePicture();
   },
 
   componentWillUnmount: function componentWillUnmount() {
@@ -19799,16 +19842,13 @@ var Facebook = React.createClass({
   },
 
   render: function render() {
-    //FacebookActionCreators.initFacebook();
-    console.log("rendering facebook component");
-    console.log(this.state.facebookPictureUrl);
     return React.createElement(FacebookPicture, { facebookPictureUrl: this.state.facebookPictureUrl, facebookPictureStatus: this.state.facebookPictureStatus });
   }
 });
 
 module.exports = Facebook;
 
-},{"../actions/FacebookActionCreators":164,"../stores/FacebookStore":174,"./FacebookPicture.react":168,"react":163}],168:[function(require,module,exports){
+},{"../actions/FacebookActionCreators":164,"../stores/FacebookStore":175,"./FacebookPicture.react":169,"react":163}],169:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
@@ -19817,7 +19857,8 @@ var FacebookActionCreators = require('../actions/FacebookActionCreators');
 var imgStyle = {
   display: 'block',
   marginLeft: 'auto',
-  marginRight: 'auto'
+  marginRight: 'auto',
+  marginBottom: '3%'
 };
 
 var FacebookPicture = React.createClass({
@@ -19834,22 +19875,18 @@ var FacebookPicture = React.createClass({
 
 module.exports = FacebookPicture;
 
-},{"../actions/FacebookActionCreators":164,"react":163}],169:[function(require,module,exports){
+},{"../actions/FacebookActionCreators":164,"react":163}],170:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
 var SocialNode = require('./SocialNode.react');
 
 var footStyle = {
-  position: 'absolute',
+  position: 'fixed',
   bottom: '0',
   width: '100%',
   height: '60px', /* Height of the footer */
-  background: 'none'
-};
-
-var nodeStyle = {
-  //make this so that the logos are centered
+  background: '#FFFFFF'
 };
 
 var Footer = React.createClass({
@@ -19861,15 +19898,13 @@ var Footer = React.createClass({
       { style: footStyle },
       React.createElement(
         'div',
-        { className: 'container tc' },
+        { className: 'container-fluid' },
         React.createElement(
           'div',
-          { className: 'col-md-4' },
-          React.createElement(
-            'a',
-            { className: 'social', href: 'https://github.com/cjurden' },
-            React.createElement('div', { className: 'fa fa-2x fa-github-square' })
-          )
+          { className: 'text-center center-block' },
+          React.createElement(SocialNode, { logo: 'fa fa-3x fa-github-square social', link: 'https://github.com/cjurden' }),
+          React.createElement(SocialNode, { logo: 'fa fa-3x fa-linkedin-square social', link: 'https://www.linkedin.com/in/cole-jurden-19801534' }),
+          React.createElement(SocialNode, { logo: 'fa fa-3x fa-facebook-square social', link: 'https://www.facebook.com/nickjergens11' })
         )
       )
     );
@@ -19878,7 +19913,14 @@ var Footer = React.createClass({
 
 module.exports = Footer;
 
-},{"./SocialNode.react":172,"react":163}],170:[function(require,module,exports){
+/*
+style={footStyle}
+<SocialNode logo="fa fa-2x fa-github-square" link="https://github.com/cjurden" />
+<SocialNode logo="fa fa-2x fa-linkedin-square" link="https://www.linkedin.com/in/cole-jurden-19801534" />
+<SocialNode logo="fa fa-2x fa-facebook-square" link="https://www.facebook.com/nickjergens11" />
+*/
+
+},{"./SocialNode.react":173,"react":163}],171:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
@@ -19906,7 +19948,7 @@ var Header = React.createClass({
 
 module.exports = Header;
 
-},{"react":163}],171:[function(require,module,exports){
+},{"react":163}],172:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
@@ -19926,7 +19968,7 @@ var Social = React.createClass({
         { className: 'row' },
         React.createElement(
           'div',
-          { className: 'col-md-offset-4 col-md-2' },
+          null,
           React.createElement(Facebook, null)
         )
       )
@@ -19943,16 +19985,37 @@ module.exports = Social;
 
 */
 
-},{"../actions/FacebookActionCreators":164,"./Facebook.react":167,"react":163}],172:[function(require,module,exports){
+},{"../actions/FacebookActionCreators":164,"./Facebook.react":168,"react":163}],173:[function(require,module,exports){
 "use strict";
 
-},{}],173:[function(require,module,exports){
+var React = require('react');
+
+var SocialNode = React.createClass({
+  displayName: "SocialNode",
+
+  render: function render() {
+    return React.createElement(
+      "a",
+      { className: "social", href: this.props.link },
+      React.createElement("i", { className: this.props.logo })
+    );
+  }
+});
+
+/*
+<div className="col-md-4">
+  <a className ="social" href={this.props.link}><i className={this.props.logo}></i></a>
+</div>
+*/
+module.exports = SocialNode;
+
+},{"react":163}],174:[function(require,module,exports){
 'use strict';
 
 var Dispatcher = require('flux').Dispatcher;
 module.exports = new Dispatcher();
 
-},{"flux":29}],174:[function(require,module,exports){
+},{"flux":29}],175:[function(require,module,exports){
 'use strict';
 
 var AppDispatcher = require('../dispatcher/AppDispatcher');
@@ -20010,4 +20073,4 @@ FacebookStore.dispatchToken = AppDispatcher.register(handleAction);
 
 module.exports = FacebookStore;
 
-},{"../dispatcher/AppDispatcher":173,"events":1,"object-assign":32}]},{},[165]);
+},{"../dispatcher/AppDispatcher":174,"events":1,"object-assign":32}]},{},[165]);

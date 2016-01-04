@@ -2,6 +2,8 @@ var React = require('react');
 var Footer = require('./Footer.react');
 var Header = require('./Header.react');
 var Social = require('./Social.react');
+var About = require('./About.react');
+var Skills = require('./Skills.react');
 //var FB = require('fb');
 //var Social = require('./Social.react');
 
@@ -26,7 +28,10 @@ var Application = React.createClass({
     return (
       <div className="app">
         <Header />
+        <hr />
         <Social />
+        <About />
+        <Skills />
         <Footer />
       </div>
     );

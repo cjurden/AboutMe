@@ -18,7 +18,7 @@ gulp.task('startserver', function() {
   return connect.server({
     port: 4000,
     root: './build/',
-    fallback: 'index.html'
+    fallback: './build/index.html'
   });
 });
 

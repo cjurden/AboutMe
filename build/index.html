@@ -5,14 +5,24 @@
     <title></title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <style>
+      .social:hover {
+         -webkit-transform: scale(1.1);
+         -moz-transform: scale(1.1);
+         -o-transform: scale(1.1);
+     }
+     .social {
+         -webkit-transform: scale(0.8);
+         /* Browser Variations: */
+
+         -moz-transform: scale(0.8);
+         -o-transform: scale(0.8);
+         -webkit-transition-duration: 0.5s;
+         -moz-transition-duration: 0.5s;
+         -o-transition-duration: 0.5s;
+     }
+    </style>
   </head>
-  <footer id="footer">
-    <div className="container">
-      <div className="col-md-4">
-        <a className ="social" href="https://github.com/cjurden"><div className="fa fa-2x fa-github-square"></div></a>
-      </div>
-    </div>
-  </footer>
   <body>
     <div id="react-app">test-text</div>
     <script src="./aboutme.js"></script>
