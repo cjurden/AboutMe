@@ -2,10 +2,11 @@
 Simple about me page using ReactJS and Facebook/Twitter API
 
 ###To Run
-Navigate to project directory in terminal and run
+Assuming you have gulp installed, navigate to project directory in terminal and run
 ```
 gulp
 ```
+[Gulp] (http://gulpjs.com/) reference
 #Notes
 Installed react as specified by Facebook:
 ```
