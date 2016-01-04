@@ -1,17 +1,16 @@
 var React = require('react');
 var Facebook = require('./Facebook.react');
-var Twitter = require('./Twitter.react');
+//var Twitter = require('./Twitter.react');
+var FacebookActionCreators = require('../actions/FacebookActionCreators');
 
 var Social = React.createClass({
+
   render: function () {
     return (
       <div className="container fluid">
         <div className="row">
-          <div className="col-md-offset-2 col-md-4">
+          <div className="col-md-offset-4 col-md-2">
             <Facebook />
-          </div>
-          <div className="col-md-4">
-            <Twitter />
           </div>
         </div>
       </div>
@@ -21,3 +20,10 @@ var Social = React.createClass({
 
 
 module.exports = Social;
+
+/*
+<div className="col-md-4">
+  <Twitter />
+</div>
+
+*/
