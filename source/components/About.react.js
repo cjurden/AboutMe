@@ -16,8 +16,8 @@ var About = React.createClass({
           I am a senior computer science student with a background in dynamic webpage design,
           specifically using cutting edge frameworks like <strong>Angular</strong> and <strong>React</strong>. My greatest strength
           is adaptability, I learn quickly and enjoy challenging myself. I caught the startup bug at TuneIn, where I witnessed agile development at work
-          and learned how large-scale tech companies operate. I am excited to take the skills I learned
-          there to Cerner, where I am interning in Summer 2016.
+          and learned how large-scale tech companies operate. I am excited to apply the skills I learned there
+          to future internships and projects.
         </p>
       </div>
     );
