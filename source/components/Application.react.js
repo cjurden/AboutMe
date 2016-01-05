@@ -4,6 +4,8 @@ var Header = require('./Header.react');
 var Social = require('./Social.react');
 var About = require('./About.react');
 var Skills = require('./Skills.react');
+
+
 //var FB = require('fb');
 //var Social = require('./Social.react');
 
@@ -30,7 +32,9 @@ var Application = React.createClass({
         <Header />
         <hr />
         <Social />
+        <div className="row">
         <About />
+        </div>
         <Skills />
         <Footer />
       </div>

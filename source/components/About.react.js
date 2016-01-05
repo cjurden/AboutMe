@@ -1,16 +1,17 @@
 var React = require('react');
 
 var aboutStyle = {
-  paddingTop: '10px',
+  paddingTop: '5px !important',
   verticalAlign: 'middle',
-  position: 'relative'
+  position: 'relative',
+  paddingBottom: '5px !important'
 
 };
 
 var About = React.createClass({
   render: function () {
     return (
-      <div style={aboutStyle} className="col-md-offset-2 col-md-8 col-sm-offset-2 col-sm-8">
+      <div style={aboutStyle} className="col-md-offset-2 col-md-8 col-sm-offset-2 col-sm-8 jumbotron">
         <p> <i className="fa fa-quote-left fa-2x fa-pull-left fa-border"></i>
           I am a senior computer science student with a background in dynamic webpage design,
           specifically using cutting edge frameworks like <strong>Angular</strong> and <strong>React</strong>. My greatest strength

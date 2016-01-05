@@ -19702,7 +19702,7 @@ var FacebookActionCreators = {
 
 module.exports = FacebookActionCreators;
 
-},{"../dispatcher/AppDispatcher":174}],165:[function(require,module,exports){
+},{"../dispatcher/AppDispatcher":175}],165:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
@@ -19721,9 +19721,10 @@ ReactDOM.render(React.createElement(Application, null), document.getElementById(
 var React = require('react');
 
 var aboutStyle = {
-  paddingTop: '10px',
+  paddingTop: '5px !important',
   verticalAlign: 'middle',
-  position: 'relative'
+  position: 'relative',
+  paddingBottom: '5px !important'
 
 };
 
@@ -19733,7 +19734,7 @@ var About = React.createClass({
   render: function render() {
     return React.createElement(
       'div',
-      { style: aboutStyle, className: 'col-md-offset-2 col-md-8 col-sm-offset-2 col-sm-8' },
+      { style: aboutStyle, className: 'col-md-offset-2 col-md-8 col-sm-offset-2 col-sm-8 jumbotron' },
       React.createElement(
         'p',
         null,
@@ -19767,6 +19768,8 @@ var Footer = require('./Footer.react');
 var Header = require('./Header.react');
 var Social = require('./Social.react');
 var About = require('./About.react');
+var Skills = require('./Skills.react');
+
 //var FB = require('fb');
 //var Social = require('./Social.react');
 
@@ -19796,7 +19799,12 @@ var Application = React.createClass({
       React.createElement(Header, null),
       React.createElement('hr', null),
       React.createElement(Social, null),
-      React.createElement(About, null),
+      React.createElement(
+        'div',
+        { className: 'row' },
+        React.createElement(About, null)
+      ),
+      React.createElement(Skills, null),
       React.createElement(Footer, null)
     );
   }
@@ -19806,7 +19814,7 @@ module.exports = Application;
 //
 //style={{textAlign: center}}
 
-},{"./About.react":166,"./Footer.react":170,"./Header.react":171,"./Social.react":172,"react":163}],168:[function(require,module,exports){
+},{"./About.react":166,"./Footer.react":170,"./Header.react":171,"./Skills.react":172,"./Social.react":173,"react":163}],168:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
@@ -19848,7 +19856,7 @@ var Facebook = React.createClass({
 
 module.exports = Facebook;
 
-},{"../actions/FacebookActionCreators":164,"../stores/FacebookStore":175,"./FacebookPicture.react":169,"react":163}],169:[function(require,module,exports){
+},{"../actions/FacebookActionCreators":164,"../stores/FacebookStore":176,"./FacebookPicture.react":169,"react":163}],169:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
@@ -19920,7 +19928,7 @@ style={footStyle}
 <SocialNode logo="fa fa-2x fa-facebook-square" link="https://www.facebook.com/nickjergens11" />
 */
 
-},{"./SocialNode.react":173,"react":163}],171:[function(require,module,exports){
+},{"./SocialNode.react":174,"react":163}],171:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
@@ -19949,6 +19957,47 @@ var Header = React.createClass({
 module.exports = Header;
 
 },{"react":163}],172:[function(require,module,exports){
+'use strict';
+
+var React = require('react');
+
+//var angURL = require('./img/angular.png');
+//var haskell = require('./Images/haskell.png');
+
+var Skills = React.createClass({
+  displayName: 'Skills',
+
+  render: function render() {
+    return React.createElement(
+      'div',
+      { className: 'container', style: { marginBottom: '60px' } },
+      React.createElement(
+        'div',
+        { className: 'row', style: { textAlign: 'center', position: 'relative' } },
+        React.createElement('img', { className: 'skills', src: 'https://camo.githubusercontent.com/a414ed53a23a0d004d0ddd1981094f02b406b181/687474703a2f2f6a61766173637269707469736d616769632e6769746875622e696f2f6175692f6c6f676f732f72656163742e706e67' }),
+        React.createElement('img', { className: 'skills', src: 'https://lh3.googleusercontent.com/GYSBZh5RpCFwTU6db0JlHfOr_f-RWvSQwP505d0ZjWfqoovT3SYxIUPOCbUZNhLeN9EDRK3b2g=s128-h128-e365' }),
+        React.createElement('img', { className: 'skills', src: 'https://mdn.mozillademos.org/files/3563/HTML5_Logo_128.png' }),
+        React.createElement('img', { className: 'skills', src: 'http://iconshow.me/media/images/logo/brand-logo-icon/png/128/css3-128.png' }),
+        React.createElement('img', { className: 'skills', src: 'http://codeschoolbulacan.com/images/jquery.png' }),
+        React.createElement('img', { className: 'skills', src: 'http://webica.org/images/slider/bootstrap.png' })
+      )
+    );
+  }
+});
+
+module.exports = Skills;
+
+/*
+
+<img src={angURL}></img>
+<img src={haskellURL}></img>
+<img src={require("/img/html5.png")}></img>
+<img src={require("/img/java.png")}></img>
+<img src={require("/img/python.png")}></img>
+<img src={require("/img/reactjs.png")}></img>
+*/
+
+},{"react":163}],173:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
@@ -19985,7 +20034,7 @@ module.exports = Social;
 
 */
 
-},{"../actions/FacebookActionCreators":164,"./Facebook.react":168,"react":163}],173:[function(require,module,exports){
+},{"../actions/FacebookActionCreators":164,"./Facebook.react":168,"react":163}],174:[function(require,module,exports){
 "use strict";
 
 var React = require('react');
@@ -20009,13 +20058,13 @@ var SocialNode = React.createClass({
 */
 module.exports = SocialNode;
 
-},{"react":163}],174:[function(require,module,exports){
+},{"react":163}],175:[function(require,module,exports){
 'use strict';
 
 var Dispatcher = require('flux').Dispatcher;
 module.exports = new Dispatcher();
 
-},{"flux":29}],175:[function(require,module,exports){
+},{"flux":29}],176:[function(require,module,exports){
 'use strict';
 
 var AppDispatcher = require('../dispatcher/AppDispatcher');
@@ -20073,4 +20122,4 @@ FacebookStore.dispatchToken = AppDispatcher.register(handleAction);
 
 module.exports = FacebookStore;
 
-},{"../dispatcher/AppDispatcher":174,"events":1,"object-assign":32}]},{},[165]);
+},{"../dispatcher/AppDispatcher":175,"events":1,"object-assign":32}]},{},[165]);
