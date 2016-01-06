@@ -19752,7 +19752,7 @@ var About = React.createClass({
           null,
           'React'
         ),
-        '. My greatest strength is adaptability, I learn quickly and enjoy challenging myself. I caught the startup bug at TuneIn, where I witnessed agile development at work and learned how large-scale tech companies operate. I am excited to take the skills I learned there to Cerner, where I am interning in Summer 2016.'
+        '. My greatest strength is adaptability, I learn quickly and enjoy challenging myself. I caught the startup bug at TuneIn, where I witnessed agile development at work and learned how large-scale tech companies operate. I am excited to apply the skills I learned there to future internships and projects.'
       )
     );
   }

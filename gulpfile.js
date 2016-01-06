@@ -5,6 +5,7 @@ var source = require('vinyl-source-stream');
 var runSequence = require('run-sequence');
 var connect = require('gulp-connect');
 var opn = require('opn');
+var deploy = require('gulp-gh-pages');
 
 gulp.task('build', function () {
   return browserify('./source/app.js')
@@ -22,11 +23,29 @@ gulp.task('startserver', function() {
   });
 });
 
+gulp.task('deploy', function () {
+  return gulp.src("./build/**/*")
+    .pipe(deploy())
+});
+
+gulp.task('openbrowser', function() {
+  return opn('http://cjurden.github.io/AboutMe');
+});
+
+//to open browser with localhost
+/*
 gulp.task('openbrowser', function() {
   return opn('http://localhost:4000');
 });
 
+
 gulp.task('default', function() {
   //runSequence('build');
   runSequence('build', 'startserver', 'openbrowser');
+});
+*/
+
+gulp.task('default', function() {
+  //runSequence('build');
+  runSequence('build', 'startserver', 'deploy', 'openbrowser');
 });
